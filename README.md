@@ -4,4 +4,4 @@ World Conquest Game
 
 In progress...
 
-You can see the final result [HERE](https://brunomndantas.github.io/WorldConquest/)
+You can find a demo [HERE](https://brunomndantas.github.io/WorldConquest/)
