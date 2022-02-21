@@ -1,0 +1,28 @@
+.root {
+    background-color: rgb(236, 236, 236);
+    padding: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 5px;
+}
+
+.nextButton {
+    display: flex !important;
+    margin-left: auto !important;
+}
+
+.country {
+    margin-top: 25px;
+}
+
+.selectedCountry {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.flag {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
