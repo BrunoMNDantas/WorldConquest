@@ -1,4 +1,4 @@
-import { NUMBER_OF_BOTS } from "../Constants"
+import { NUMBER_OF_BOTS } from "../../Constants"
 
 export function buildPlayer(player) {
     return {

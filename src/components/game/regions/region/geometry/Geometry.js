@@ -7,7 +7,7 @@ import { selectCountryById } from '../../../../../store/country/Country.selector
 import { selectPlayerById } from '../../../../../store/player/Player.selectors'
 import { selectSelectedRegionId } from '../../../../../store/game/Game.selectors'
 
-import { selectRegion } from "../../../../../services/GameEngine";
+import { selectRegion } from "../../../../../services/game/GameEngine";
 
 const Geometry = ({regionId}) => {
   console.log("::Geometry::")

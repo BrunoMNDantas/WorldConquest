@@ -11,3 +11,13 @@ export const selectRegionOfCountry = createSelector(
 export const selectRegionsOfPlayer =  createSelector(
     [selectAllRegions, (state, playerId) => playerId],
     (regions, playerId) => regions.filter(region => region.playerId === playerId))
+
+export const selectPlayerIdOfRegion = createSelector(
+    [selectRegionById],
+    (region) => region.playerId)
+export const selectCountryIdOfRegion = createSelector(
+    [selectRegionById],
+    (region) => region.countryId)
+export const selectUnitsOfRegion = createSelector(
+    [selectRegionById],
+    (region) => region.units)

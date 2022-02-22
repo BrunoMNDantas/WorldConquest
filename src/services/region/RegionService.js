@@ -1,4 +1,4 @@
-import { MAX_INITIAL_UNITS_AMMOUNT, MIN_INITIAL_UNITS_AMMOUNT, MAX_UNITS_AMMOUNT } from "../Constants";
+import { MAX_INITIAL_UNITS_AMMOUNT, MIN_INITIAL_UNITS_AMMOUNT, MAX_UNITS_AMMOUNT } from "../../Constants";
 
 export function buildRegions(countries, players) {
     let id = 1;

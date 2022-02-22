@@ -5,6 +5,9 @@ export const selectAllPlayers = playersAdapter.getSelectors(state => state.playe
 export const selectPlayersIds = playersAdapter.getSelectors(state => state.players).selectIds
 export const selectPlayerById = playersAdapter.getSelectors(state => state.players).selectById
 
+export const selectInitialCountryOfPlayer = createSelector(
+    [selectPlayerById],
+    (player) => player.initialCountry)
 export const selectPlayerWithInitialCountry = createSelector(
     [selectAllPlayers, (state, initialCountryId) => initialCountryId],
     (players, initialCountryId) => players.filter(player => player.initialCountry === initialCountryId))

@@ -1,4 +1,4 @@
-import Countries from './mock/countries/Countries';
+import Countries from './countries/Countries';
 
 export function buildCountries() {
     const countries = Countries.map(country => {

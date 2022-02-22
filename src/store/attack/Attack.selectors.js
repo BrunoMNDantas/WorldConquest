@@ -17,3 +17,22 @@ export const selectAttacksFromRegion = createSelector(
 export const selectAttacksToRegion = createSelector(
     [selectAllAttacks, (state, toRegionId) => toRegionId],
     (attacks, toRegionId) => attacks.filter(attack => attack.toRegionId === toRegionId))
+
+export const selectFromPlayerIdOfAttack = createSelector(
+    [selectAttackById],
+    (attack) => attack.fromPlayerId)
+export const selectToPlayerIdOfAttack = createSelector(
+    [selectAttackById],
+    (attack) => attack.toPlayerId)
+export const selectFromRegionIdOfAttack = createSelector(
+    [selectAttackById],
+    (attack) => attack.fromRegionId)
+export const selectToRegionIdOfAttack = createSelector(
+    [selectAttackById],
+    (attack) => attack.toRegionId)
+export const selectPositionOfAttack = createSelector(
+    [selectAttackById],
+    (attack) => attack.position)
+export const selectUnitsOfAttack = createSelector(
+    [selectAttackById],
+    (attack) => attack.units)

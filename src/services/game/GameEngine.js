@@ -1,19 +1,20 @@
-import { ATTACKS_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL } from '../Constants'
+import { ATTACKS_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL } from '../../Constants'
 
-import store from '../store/store'
+import store from '../../store/store'
 
-import { updateRegionUnitsAmmount, updateRegionPlayerId } from '../store/region/Region.actions'
-import { addAttack, removeAttack, updateAttackPosition } from '../store/attack/Attack.actions'
-import { setResult, setSelectedRegionId } from '../store/game/Game.actions'
+import { updateRegionUnitsAmmount, updateRegionPlayerId } from '../../store/region/Region.actions'
+import { addAttack, removeAttack, updateAttackPosition } from '../../store/attack/Attack.actions'
+import { setResult, setSelectedRegionId } from '../../store/game/Game.actions'
 
-import { selectAllAttacks, selectAttacksFromPlayer } from '../store/attack/Attack.selectors'
-import { selectCountryById } from '../store/country/Country.selectors'
-import { selectAllPlayers } from '../store/player/Player.selectors'
-import { selectAllRegions, selectRegionById, selectRegionsOfPlayer } from '../store/region/Region.selectors'
-import { selectCurrentPlayerId, selectSelectedRegionId, selectResult } from '../store/game/Game.selectors';
+import { selectAllAttacks, selectAttacksFromPlayer } from '../../store/attack/Attack.selectors'
+import { selectCountryById } from '../../store/country/Country.selectors'
+import { selectAllPlayers } from '../../store/player/Player.selectors'
+import { selectAllRegions, selectRegionById, selectRegionsOfPlayer } from '../../store/region/Region.selectors'
+import { selectCurrentPlayerId, selectSelectedRegionId, selectResult } from '../../store/game/Game.selectors';
 
-import { buildAttack, getNewPosition, arrived } from './AttackService'
-import { calculateUnitsAmmount } from './RegionService'
+import { buildAttack, getNewPosition, arrived } from '../attack/AttackService'
+import { calculateUnitsAmmount } from '../region/RegionService'
+
 
 export const runEngine = () => {
     console.log("--Scheduling Engine--")
