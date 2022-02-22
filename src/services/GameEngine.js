@@ -15,7 +15,7 @@ import { selectCurrentPlayerId, selectSelectedRegionId, selectResult } from '../
 import { buildAttack, getNewPosition, arrived } from './AttackService'
 import { calculateUnitsAmmount } from './RegionService'
 
-const runEngine = () => {
+export const runEngine = () => {
     console.log("--Scheduling Engine--")
 
     setInterval(() => {    
@@ -138,8 +138,12 @@ export function selectRegion(regionId) {
                 store.dispatch(setSelectedRegionId(regionId))
             }
         } else {
-            createAttack(selectedRegion, region)
-            store.dispatch(setSelectedRegionId(null))
+            if(selectedRegion.playerId !== currentPlayerId) {
+                store.dispatch(setSelectedRegionId(null))
+            } else {
+                createAttack(selectedRegion, region)
+                store.dispatch(setSelectedRegionId(null))
+            }
         }
     } 
 }
@@ -153,8 +157,4 @@ function createAttack(fromRegion, toRegion) {
     store.dispatch(updateRegionUnitsAmmount({regionId: fromRegion.id, ammount: 0}))
 
     store.dispatch(setSelectedRegionId(null))
-}
-
-export function run() {
-    runEngine();
 }

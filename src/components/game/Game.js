@@ -4,7 +4,7 @@ import Regions from './regions/Regions'
 import Map from './map/Map'
 import Result from './resultDialog/ResultDialog'
 
-import { run as runEngine } from '../../services/GameEngine'
+import { runEngine } from '../../services/GameEngine'
 import { useSelector } from 'react-redux'
 import { selectResult } from '../../store/game/Game.selectors'
 
