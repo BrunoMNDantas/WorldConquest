@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux'
-import { NO_PLAYER_COLOR } from '../../../../../Constants'
+import { NO_PLAYER_COLOR } from '../../../../../../Constants'
 import { Polygon } from 'react-leaflet'
 
-import { selectRegionById } from '../../../../../store/region/Region.selectors'
-import { selectCountryById } from '../../../../../store/country/Country.selectors'
-import { selectPlayerById } from '../../../../../store/player/Player.selectors'
-import { selectSelectedRegionId } from '../../../../../store/game/Game.selectors'
+import { selectRegionById } from '../../../../../../store/region/Region.selectors'
+import { selectCountryById } from '../../../../../../store/country/Country.selectors'
+import { selectPlayerById } from '../../../../../../store/player/Player.selectors'
+import { selectSelectedRegionId } from '../../../../../../store/game/Game.selectors'
 
-import { selectRegion } from "../../../../../services/game/GameEngine";
+import { selectRegion } from "../../../../../../services/game/GameEngine";
 
 const Geometry = ({regionId}) => {
   console.log("::Geometry::")

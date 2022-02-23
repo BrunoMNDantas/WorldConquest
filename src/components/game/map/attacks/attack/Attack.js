@@ -1,8 +1,8 @@
 import React from "react"
 import { useSelector } from 'react-redux'
-import { selectAttackById } from '../../../../store/attack/Attack.selectors'
-import { selectPlayerById } from '../../../../store/player/Player.selectors'
-import { selectCountryById } from '../../../../store/country/Country.selectors'
+import { selectAttackById } from '../../../../../store/attack/Attack.selectors'
+import { selectPlayerById } from '../../../../../store/player/Player.selectors'
+import { selectCountryById } from '../../../../../store/country/Country.selectors'
 import { Marker, Tooltip } from 'react-leaflet'
 import L from 'leaflet';
 

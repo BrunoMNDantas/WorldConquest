@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from 'react-redux'
 
-import { selectAttacksId } from '../../../store/attack/Attack.selectors';
+import { selectAttacksId } from '../../../../store/attack/Attack.selectors';
 
 import Attack from "./attack/Attack";
 

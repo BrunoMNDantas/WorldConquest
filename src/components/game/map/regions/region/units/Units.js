@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import { Marker, Tooltip } from 'react-leaflet'
 import L from 'leaflet';
 
-import { selectRegionById } from '../../../../../store/region/Region.selectors'
-import { selectCountryById } from '../../../../../store/country/Country.selectors'
-import { selectPlayerById } from '../../../../../store/player/Player.selectors'
+import { selectRegionById } from '../../../../../../store/region/Region.selectors'
+import { selectCountryById } from '../../../../../../store/country/Country.selectors'
+import { selectPlayerById } from '../../../../../../store/player/Player.selectors'
 
 const Region = ({regionId}) => {
   console.log("::Units::")

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Attacks from './attacks/Attacks'
-import Regions from './regions/Regions'
 import Map from './map/Map'
 import { Dialog, DialogTitle, DialogActions, Button } from '@material-ui/core'
 
@@ -45,10 +43,7 @@ const Game = () => {
 
     return (
         <div>
-            <Map>
-                <Regions/>
-                <Attacks/>
-            </Map>
+            <Map/>
             <SimpleDialog open={showCurrentPlayerLostDialog} title={"You lost!"} onOk={() => setShowCurrentPlayerLostDialog(false)}/>
             <SimpleDialog open={showWinnerDialog} title={winner + " won!"} onOk={() => setShowWinnerDialog(false)}/>
         </div>

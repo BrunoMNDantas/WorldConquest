@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux";
 
-import { selectRegionsId } from "../../../store/region/Region.selectors";
+import { selectRegionsId } from "../../../../store/region/Region.selectors";
 
 import Region from './region/Region'
 
