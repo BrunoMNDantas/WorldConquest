@@ -1,4 +1,4 @@
-import { MAX_INITIAL_UNITS_AMMOUNT, MIN_INITIAL_UNITS_AMMOUNT, MAX_UNITS_AMMOUNT } from "../../Constants";
+import { MAX_INITIAL_UNITS, MIN_INITIAL_UNITS } from "../../Constants";
 
 export function buildRegions(countries, players) {
     let id = 1;
@@ -16,10 +16,7 @@ export function buildRegions(countries, players) {
             id: id++,
             countryId: country.id,
             playerId: player?.id,
-            units: {
-                ammount: normalizePopulation(minPopulation, maxPopulation, country.population),
-                max: MAX_UNITS_AMMOUNT
-            }
+            units: normalizePopulation(minPopulation, maxPopulation, country.population)
         })
     })
 
@@ -31,15 +28,5 @@ export function normalizePopulation(min, max, population) {
 
     let normalized = normalize(min, max, population)
 
-    return Math.round(normalized * MAX_INITIAL_UNITS_AMMOUNT) + MIN_INITIAL_UNITS_AMMOUNT
-}
-
-export function calculateUnitsAmmount(region) {
-    let currentAmmount = region.units.ammount
-    let maxAmmount = region.units.max
-
-    if(currentAmmount >= maxAmmount)
-        return currentAmmount
-
-    return currentAmmount + 1;
+    return Math.round(normalized * MAX_INITIAL_UNITS) + MIN_INITIAL_UNITS
 }

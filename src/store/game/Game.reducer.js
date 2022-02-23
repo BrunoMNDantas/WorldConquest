@@ -3,21 +3,28 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   currentPlayerId: null,
   selectedRegionId: null,
-  result: null
+  winner: undefined,
+  currentPlayerLost: false,
 }
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    setResult: (state, action) => {
-      state.result = action.payload
-    },
     setCurrentPlayerId: (state, action) => {
       state.currentPlayerId = action.payload
     },
     setSelectedRegionId: (state, action) => {
       state.selectedRegionId = action.payload
+    },
+    setWinner: (state, action) => {
+      state.winner = action.payload
+    },
+    setCurrentPlayerLost: (state, action) => {
+      state.currentPlayerLost = action.payload
+    },
+    setResult: (state, action) => {
+      state.result = action.payload
     },
   },
 })

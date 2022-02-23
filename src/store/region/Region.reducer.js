@@ -17,10 +17,10 @@ export const regionSlice = createSlice({
     updateRegions: regionsAdapter.updateMany,
     updateRegion: regionsAdapter.updateOne,
 
-    updateRegionUnitsAmmount: (state, action) => {
-      let {regionId, ammount} = action.payload
+    updateRegionUnits: (state, action) => {
+      let {regionId, units} = action.payload
       let region = state.entities[regionId]
-      region.units.ammount = ammount
+      region.units = units
     },
 
     updateRegionPlayerId: (state, action) => {

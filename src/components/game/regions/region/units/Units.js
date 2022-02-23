@@ -36,7 +36,7 @@ const Region = ({regionId}) => {
         key={"Region " + region.id}
         position={[lat, lng]}
         icon={icon}>        
-        <Tooltip direction="top" offset={[0, 0]} opacity={1} permanent>{region.units.ammount}</Tooltip>
+        <Tooltip direction="top" offset={[0, 0]} opacity={1} permanent>{region.units}</Tooltip>
       </Marker>
       :
       null
