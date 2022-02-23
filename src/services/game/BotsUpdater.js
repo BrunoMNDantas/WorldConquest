@@ -18,35 +18,96 @@ export const updateBots = () => {
     const bots = selectAllPlayers(store.getState()).filter(player => player.id !== currentPlayerId)
 
     bots.forEach(bot => {
-        let regions = selectAllRegions(store.getState())
+        let aiLevel = bot.aiLevel
 
-        let botRegions = selectRegionsOfPlayer(store.getState(), bot.id)
-
-        if(botRegions.length === 0)//Bot doesn't have regions, there is no action to take
-            return;
-
-        let othersRegions = regions.filter(region => region.playerId !== bot.id)
-
-        if(othersRegions.length === 0)//There are no regions to attacks
-            return;
-
-        let botAttacks = selectAttacksFromPlayer(store.getState(), bot.id)
-
-        if(botAttacks.length !== 0)//Bot has attacks in progress. Wait to for attacks to finish to decide the nest step
-            return;
-            
-        let botRegionWithMostUnits = botRegions.sort((a,b) => a.units - b.units)[botRegions.length-1]
-        let othersRegionWithLessUnits = othersRegions.sort((a,b) => a.units - b.units)[0]
-
-        if(botRegionWithMostUnits.units > othersRegionWithLessUnits.units) {
-            createAttack(botRegionWithMostUnits, othersRegionWithLessUnits)
-        } else {
-            let botWaekRegions = botRegions.filter(region => region.id !== botRegionWithMostUnits.id)
-            botWaekRegions.forEach(weakRegion => {
-                createAttack(weakRegion, botRegionWithMostUnits)
-            })
+        switch (aiLevel) {
+            case 1: updateBotAsDummy(bot); break;
+            case 2: updateBotAsNormal(bot); break;
+            case 3: updateBotAsExpert(bot); break;
+            default: window.alert("Unknown aiLevel: " + aiLevel)
         }
     })
+}
+
+export function updateBotAsDummy(bot) {
+    let regions = selectAllRegions(store.getState())
+
+    let botRegions = selectRegionsOfPlayer(store.getState(), bot.id)
+
+    if(botRegions.length === 0)//Bot doesn't have regions, there is no action to take
+        return;
+
+    let othersRegions = regions.filter(region => region.playerId !== bot.id)
+
+    if(othersRegions.length === 0)//There are no regions to attacks
+        return;
+
+    let botAttacks = selectAttacksFromPlayer(store.getState(), bot.id)
+
+    if(botAttacks.length !== 0)//Bot has attacks in progress. Wait to for attacks to finish to decide the nest step
+        return;
+        
+    let botRegionWithMostUnits = botRegions.sort((a,b) => a.units - b.units)[botRegions.length-1]
+    let othersRegionWithLessUnits = othersRegions.sort((a,b) => a.units - b.units)[0]
+
+    createAttack(botRegionWithMostUnits, othersRegionWithLessUnits)
+}
+
+export function updateBotAsNormal(bot) {
+    let regions = selectAllRegions(store.getState())
+
+    let botRegions = selectRegionsOfPlayer(store.getState(), bot.id)
+
+    if(botRegions.length === 0)//Bot doesn't have regions, there is no action to take
+        return;
+
+    let othersRegions = regions.filter(region => region.playerId !== bot.id)
+
+    if(othersRegions.length === 0)//There are no regions to attacks
+        return;
+
+    let botAttacks = selectAttacksFromPlayer(store.getState(), bot.id)
+
+    if(botAttacks.length !== 0)//Bot has attacks in progress. Wait to for attacks to finish to decide the nest step
+        return;
+        
+    let botRegionWithMostUnits = botRegions.sort((a,b) => a.units - b.units)[botRegions.length-1]
+    let othersRegionWithLessUnits = othersRegions.sort((a,b) => a.units - b.units)[0]
+
+    if(botRegionWithMostUnits.units > othersRegionWithLessUnits.units) {
+        createAttack(botRegionWithMostUnits, othersRegionWithLessUnits)
+    }
+}
+
+export function updateBotAsExpert(bot) {
+    let regions = selectAllRegions(store.getState())
+
+    let botRegions = selectRegionsOfPlayer(store.getState(), bot.id)
+
+    if(botRegions.length === 0)//Bot doesn't have regions, there is no action to take
+        return;
+
+    let othersRegions = regions.filter(region => region.playerId !== bot.id)
+
+    if(othersRegions.length === 0)//There are no regions to attacks
+        return;
+
+    let botAttacks = selectAttacksFromPlayer(store.getState(), bot.id)
+
+    if(botAttacks.length !== 0)//Bot has attacks in progress. Wait to for attacks to finish to decide the nest step
+        return;
+        
+    let botRegionWithMostUnits = botRegions.sort((a,b) => a.units - b.units)[botRegions.length-1]
+    let othersRegionWithLessUnits = othersRegions.sort((a,b) => a.units - b.units)[0]
+
+    if(botRegionWithMostUnits.units > othersRegionWithLessUnits.units) {
+        createAttack(botRegionWithMostUnits, othersRegionWithLessUnits)
+    } else {
+        let botWaekRegions = botRegions.filter(region => region.id !== botRegionWithMostUnits.id)
+        botWaekRegions.forEach(weakRegion => {
+            createAttack(weakRegion, botRegionWithMostUnits)
+        })
+    }
 }
 
 export function createAttack(fromRegion, toRegion) {

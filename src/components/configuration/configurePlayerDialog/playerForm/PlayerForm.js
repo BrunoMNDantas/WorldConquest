@@ -55,7 +55,7 @@ const PlayerForm = ({player}) => {
             {
               countries.map(country => {
                 return (
-                  <MenuItem value={country.name} className={Styles.selectedCountry}>
+                  <MenuItem key={"PlayerForm " + country.id} value={country.name} className={Styles.selectedCountry}>
                     <img src={country.flagUrl} className={Styles.flag}></img>
                     {country.name}
                   </MenuItem>

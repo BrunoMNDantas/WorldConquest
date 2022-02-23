@@ -3,27 +3,24 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mate
 import PlayerForm from './playerForm/PlayerForm';
 
 
-const ConfigurePlayerDialog = ({open, onFinish}) => {
+const ConfigurePlayerDialog = ({open, onNext}) => {
   console.log("::Configure Player Dialog::")
  
   const player = {}
 
   const handleFinish = () => {
-    onFinish(player)
+    onNext(player)
   }
   
   return (
-    <Dialog
-      open={open}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description">
-      <DialogTitle id="alert-dialog-title" style={{textAlign: "center"}}>Configure Player</DialogTitle>
+    <Dialog open={open}>
+      <DialogTitle style={{textAlign: "center"}}>Configure Player</DialogTitle>
       <DialogContent>
         <PlayerForm player={player}/>
       </DialogContent>
       <DialogActions>
         <Button variant="contained" color="primary" onClick={handleFinish}>
-          Finish
+          Next
         </Button>
       </DialogActions>
     </Dialog>

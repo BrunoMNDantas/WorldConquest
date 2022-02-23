@@ -9,14 +9,14 @@ import Belgium from './Belgium/Belgium.json'
 import China from './China/China.json'
 
 const Countries = [
-    //Portugal,
+    Portugal,
     Spain,
-    //France,
-    //Italy,
+    France,
+    Italy,
     Germany,
     Switzerland,
-    //Austria,
-    //Belgium,
+    Austria,
+    Belgium,
     //China
 ];
 

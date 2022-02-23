@@ -2,9 +2,9 @@ export const ATTACKS_UPDATE_INTERVAL = 100;
 export const UNITS_UPDATE_INTERVAL = 1000;
 export const BOTS_UPDATE_INTERVAL = 5000;
 
-export const MIN_INITIAL_UNITS_AMMOUNT = 10;
-export const MAX_INITIAL_UNITS_AMMOUNT = 100;
-export const MAX_UNITS_AMMOUNT = 200;
+export const MIN_INITIAL_UNITS = 10;
+export const MAX_INITIAL_UNITS = 100;
+export const MAX_UNITS = 200;
 
 export const NO_PLAYER_COLOR = "#000000";
 
@@ -22,4 +22,10 @@ export const DEFAULT_PLAYER_NAME = "Player";
 export const DEFAULT_PLAYER_COLOR = COLORS[0];
 export const DEFAULT_PLAYER_INITIAL_COUNTRY = "Spain";
 
-export const NUMBER_OF_BOTS = 1;
+export const NUMBER_OF_BOTS = 3;
+
+export const DIFFICULTY_LEVELS = [
+    { level: 1, name:"Easy" },
+    { level: 2, name:"Normal" },
+    { level: 3, name:"Hard" },
+];

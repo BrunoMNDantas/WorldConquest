@@ -11,14 +11,15 @@ export function buildPlayers(players) {
     return players.map(buildPlayer)
 }
 
-export function buildBots(colors, countriesIds) {
+export function buildBots(colors, countriesIds, aiLevel) {
     let bots = []
 
     for(let i = 0; i < NUMBER_OF_BOTS; ++i) {
         bots.push({
             name: "Bot " + (i+1),
             color: colors[i],
-            initialCountry: countriesIds[i]
+            initialCountry: countriesIds[i],
+            aiLevel: aiLevel
         })
     }
 

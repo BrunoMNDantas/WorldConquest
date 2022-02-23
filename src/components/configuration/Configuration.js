@@ -9,6 +9,7 @@ import { addCountries } from '../../store/country/Country.actions'
 import { addPlayers } from '../../store/player/Player.actions'
 import { setCurrentPlayerId } from '../../store/game/Game.actions'
 import ConfigurePlayerDialog from './configurePlayerDialog/ConfigurePlayerDialog'
+import DifficultyDialog from './difficultyDialog/DifficultyDialog'
 
 const Configuration = () => {
     console.log("::Configuration::")
@@ -16,31 +17,52 @@ const Configuration = () => {
     const dispatch = useDispatch()
     const countries = buildCountries()
     const colors = COLORS
-    const [configOpen, setConfigOpen] = useState(true)
+
+    const [showPlayerConfig, setShowPlayerConfig] = useState(false)
+    const [showDifficultyConfig, setShowDifficultyConfig] = useState(false)
+    const [player, setPlayer] = useState()
+    const [difficulty, setDifficulty] = useState()
 
     useEffect(() => {
       dispatch(addCountries(countries))
+      setShowPlayerConfig(true)
     }, [dispatch])
-  
-    function onFinish(player) {
-      let currentPlayer = buildPlayer(player)
 
-      let countriesLeft = countries.map(country => country.id).filter(countryId => countryId !== currentPlayer.initialCountry) 
-      let colorsLeft = colors.filter(color => color !== currentPlayer.color)
-      let botPlayers = buildBots(colorsLeft, countriesLeft)
-
-      let players = [currentPlayer, ...botPlayers]
-      let regions = buildRegions(countries, players)
- 
-      dispatch(addPlayers(players))
-      dispatch(setCurrentPlayerId(currentPlayer.id))
-      dispatch(addRegions(regions))
+    useEffect(() => {
+        if(player && difficulty) {
+          let currentPlayer = buildPlayer(player)
   
-      setConfigOpen(false)
+          let countriesLeft = countries.map(country => country.id).filter(countryId => countryId !== currentPlayer.initialCountry) 
+          let colorsLeft = colors.filter(color => color !== currentPlayer.color)
+          let botPlayers = buildBots(colorsLeft, countriesLeft, difficulty.level)
+    
+          let players = [currentPlayer, ...botPlayers]
+          let regions = buildRegions(countries, players)
+     
+          dispatch(addPlayers(players))
+          dispatch(setCurrentPlayerId(currentPlayer.id))
+          dispatch(addRegions(regions))
+        }
+    }, [player, difficulty])
+  
+    function onPlayerConfigFinish(player) {
+      setPlayer(player)
+
+      setShowPlayerConfig(false)
+      setShowDifficultyConfig(true)
     }
-  
+
+    function onDifficultyConfigFinish(difficulty) {
+      setDifficulty(difficulty)
+
+      setShowDifficultyConfig(false)
+    }
+
     return (
-        <ConfigurePlayerDialog open={configOpen} onFinish={onFinish}/>
+      <div>
+        <ConfigurePlayerDialog open={showPlayerConfig} onNext={onPlayerConfigFinish}/>
+        <DifficultyDialog open={showDifficultyConfig} onNext={onDifficultyConfigFinish}/>
+      </div>
     );
 }
 
