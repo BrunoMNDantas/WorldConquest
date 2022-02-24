@@ -5,6 +5,7 @@ import { Dialog, DialogTitle, DialogActions, Button } from '@material-ui/core'
 import { runEngine } from '../../services/game/GameEngine'
 import { useSelector } from 'react-redux'
 import { selectWinner, selectCurrentPlayerLost } from '../../store/game/Game.selectors'
+import Info from './info/Info'
 
 const SimpleDialog = ({open, title, onOk}) => {
     return (
@@ -32,10 +33,12 @@ const Game = () => {
     const [showWinnerDialog, setShowWinnerDialog] = useState(false)
 
     useEffect(() => runEngine(), [])
+
     useEffect(() => {
         if(currentPlayerLost)
             setShowCurrentPlayerLostDialog(true)
     }, [currentPlayerLost])
+    
     useEffect(() => {
         if(winner)        
             setShowWinnerDialog(true)
@@ -44,6 +47,7 @@ const Game = () => {
     return (
         <div>
             <Map/>
+            <Info/>
             <SimpleDialog open={showCurrentPlayerLostDialog} title={"You lost!"} onOk={() => setShowCurrentPlayerLostDialog(false)}/>
             <SimpleDialog open={showWinnerDialog} title={winner + " won!"} onOk={() => setShowWinnerDialog(false)}/>
         </div>

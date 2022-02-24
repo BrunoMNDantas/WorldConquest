@@ -12,7 +12,7 @@ export function updateUnits() {
     regions.forEach(region => {
         let units = calculateUnits(region)
 
-        if(units != region.units)
+        if(units !== region.units)
             store.dispatch(updateRegionUnits({regionId: region.id, units}))
     })
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useSelector } from 'react-redux'
 import { COLORS, DEFAULT_PLAYER_NAME, DEFAULT_PLAYER_COLOR, DEFAULT_PLAYER_INITIAL_COUNTRY } from "../../../../Constants";
 import Styles from './PlayerForm.module.css'
-import { TextField, Select, InputLabel, FormControl, Avatar, MenuItem, makeStyles } from "@material-ui/core"
+import { TextField, Select, InputLabel, FormControl, MenuItem } from "@material-ui/core"
 import { CirclePicker } from 'react-color';
 import { selectAllCountries } from "../../../../store/country/Country.selectors";
 
