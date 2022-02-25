@@ -76,3 +76,21 @@ export function getNewPosition(currentPosition, toPosition) {
 
     return { lat, lng };
 }
+
+export function calculateDistance(from, to) {    
+    const lonFrom =  from.lng * Math.PI / 180;
+    const lonTo = to.lng * Math.PI / 180;
+    const latFrom = from.lat * Math.PI / 180;
+    const latTo = to.lat * Math.PI / 180;
+
+    let dlon = lonTo - lonFrom;
+    let dlat = latTo - latFrom;
+
+    let a = Math.pow(Math.sin(dlat / 2), 2) + Math.cos(latTo) * Math.cos(latFrom) * Math.pow(Math.sin(dlon / 2),2);
+    
+    let c = 2 * Math.asin(Math.sqrt(a));
+
+    let r = 6371;
+
+    return c * r;
+}
