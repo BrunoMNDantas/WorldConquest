@@ -1,0 +1,24 @@
+.paper {
+    width: 500px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.747) !important;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.infoContainer {
+    width: 40%;
+    
+}
+
+.actionsContainer {
+    width: 60%;
+    
+}
+
+.image {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
