@@ -1,12 +1,14 @@
-import PlayersUnitsInfo from "./playersUnitsInfo/PlayersUnitsInfo";
+import RegionsInfo from "./regionsInfo/RegionsInfo";
 import styles from './Info.module.css'
 
-const Info = (props) => {
+const Info = () => {
     console.log(":Info::")
 
     return (
         <div className={styles.root}>
-            <PlayersUnitsInfo/>
+            <div className={styles.panel}>
+                <RegionsInfo/>
+            </div>
         </div>
     )
 }

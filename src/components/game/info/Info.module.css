@@ -4,3 +4,7 @@
     left: 0;
     z-index: 1001;
 }
+
+.panel {
+    margin-top: 15px;
+}
