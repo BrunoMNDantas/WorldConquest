@@ -15,6 +15,15 @@
     margin-top: 25px;
 }
 
+.avatar {
+    margin-top: 25px;
+}
+
+.avatarImage {
+    width: 75px;
+    width: 75px;
+}
+
 .selectedCountry {
     display: flex !important;
     align-items: center !important;

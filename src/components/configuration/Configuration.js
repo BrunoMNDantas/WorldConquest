@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { COLORS } from '../../Constants'
+import { AVATARS, COLORS } from '../../Constants'
 import { buildCountries } from '../../services/country/CountryService'
 import { buildPlayer, buildBots } from '../../services/player/PlayerService' 
 import { buildRegions } from '../../services/region/RegionService'
@@ -17,6 +17,7 @@ const Configuration = () => {
     const dispatch = useDispatch()
     const countries = buildCountries()
     const colors = COLORS
+    const avatars = AVATARS
 
     const [showPlayerConfig, setShowPlayerConfig] = useState(false)
     const [showDifficultyConfig, setShowDifficultyConfig] = useState(false)
@@ -34,11 +35,12 @@ const Configuration = () => {
   
           let countriesLeft = countries.map(country => country.id).filter(countryId => countryId !== currentPlayer.initialCountry) 
           let colorsLeft = colors.filter(color => color !== currentPlayer.color)
-          let botPlayers = buildBots(colorsLeft, countriesLeft, difficulty.level)
+          let avatarsLeft = avatars.filter(avatar => avatar !== currentPlayer.avatar)
+          let botPlayers = buildBots(colorsLeft, avatarsLeft, countriesLeft, difficulty.level)
     
           let players = [currentPlayer, ...botPlayers]
           let regions = buildRegions(countries, players)
-     
+
           dispatch(addPlayers(players))
           dispatch(setCurrentPlayerId(currentPlayer.id))
           dispatch(addRegions(regions))

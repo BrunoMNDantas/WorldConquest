@@ -18,9 +18,19 @@ export const COLORS = [
     "#607d8b"
 ]
 
+export const AVATARS = [
+    process.env.PUBLIC_URL + "/Avatar1.png",
+    process.env.PUBLIC_URL + "/Avatar2.png",
+    process.env.PUBLIC_URL + "/Avatar3.png",
+    process.env.PUBLIC_URL + "/Avatar4.png",
+    process.env.PUBLIC_URL + "/Avatar5.png",
+    process.env.PUBLIC_URL + "/Avatar6.png"
+]
+
 export const DEFAULT_PLAYER_NAME = "Player";
 export const DEFAULT_PLAYER_COLOR = COLORS[0];
 export const DEFAULT_PLAYER_INITIAL_COUNTRY = "Spain";
+export const DEFAULT_PLAYER_AVATAR = AVATARS[0];
 
 export const NUMBER_OF_BOTS = 3;
 
