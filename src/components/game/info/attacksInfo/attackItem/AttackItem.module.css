@@ -44,7 +44,7 @@
     width: 100px;
     height: 3px;
     background-color: rgb(255, 62, 62);
-    animation: lineToAnimation 5s infinite;
+    animation: lineToAnimation 2s infinite;
 }
 
 @keyframes lineToAnimation {
@@ -63,7 +63,7 @@
     width: 100px;
     height: 3px;
     background-color: rgb(15, 148, 33);
-    animation: lineFromAnimation 5s infinite;
+    animation: lineFromAnimation 2s infinite;
 }
 
 @keyframes lineFromAnimation {
