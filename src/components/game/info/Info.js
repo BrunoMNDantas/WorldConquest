@@ -1,5 +1,5 @@
 import RegionsInfo from "./regionsInfo/RegionsInfo";
-import AttacksInfo from "./attacksInfo/AttacksInfo";
+import MovesInfo from "./movesInfo/MovesInfo";
 import styles from './Info.module.css'
 import RegionDetail from "./regionDetail/RegionDetail";
 
@@ -11,8 +11,8 @@ const Info = () => {
             <div className={styles.regionsInfo}>
                 <RegionsInfo/>
             </div>
-            <div className={styles.attacksInfo}>
-                <AttacksInfo/>
+            <div className={styles.movesInfo}>
+                <MovesInfo/>
             </div>
             <div className={styles.regionDetail}>
                 <RegionDetail/>

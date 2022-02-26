@@ -1,4 +1,4 @@
-import { ATTACKS_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL } from '../../Constants'
+import { MOVES_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL } from '../../Constants'
 
 import store from '../../store/store'
 
@@ -7,10 +7,10 @@ import { setSelectedRegionId } from '../../store/game/Game.actions'
 import { selectRegionById } from '../../store/region/Region.selectors'
 import { selectCurrentPlayerId, selectSelectedRegionId } from '../../store/game/Game.selectors';
 
-import { declareIfCurrentPlayerLost, declareIfGameFinish, updateUnits, updateAttacks, updateBots, createAttack } from './GameService'
+import { declareIfCurrentPlayerLost, declareIfGameFinish, updateUnits, updateMoves, updateBots, createMove } from './GameService'
 
 let updateUnitsInterval
-let updateAttacksInterval
+let updateMovesInterval
 let updateBotsInterval
 
 export const runEngine = () => {
@@ -19,10 +19,10 @@ export const runEngine = () => {
         checkGameFinishAndPlayerLost()
     }, UNITS_UPDATE_INTERVAL)
 
-    updateAttacksInterval = setInterval(() => {    
-        updateAttacks()
+    updateMovesInterval = setInterval(() => {    
+        updateMoves()
         checkGameFinishAndPlayerLost()
-    }, ATTACKS_UPDATE_INTERVAL)
+    }, MOVES_UPDATE_INTERVAL)
 
     updateBotsInterval = setInterval(() => {
         updateBots()
@@ -35,7 +35,7 @@ const checkGameFinishAndPlayerLost = () => {
 
     if(declareIfGameFinish()) {
         clearInterval(updateUnitsInterval)
-        clearInterval(updateAttacksInterval)
+        clearInterval(updateMovesInterval)
         clearInterval(updateBotsInterval)
     }
 }
@@ -58,7 +58,7 @@ export function selectRegion(regionId) {
             if(selectedRegion.playerId !== currentPlayerId) {
                 store.dispatch(setSelectedRegionId(null))
             } else {
-                createAttack(selectedRegion, region)
+                createMove(selectedRegion, region)
                 store.dispatch(setSelectedRegionId(null))
             }
         }

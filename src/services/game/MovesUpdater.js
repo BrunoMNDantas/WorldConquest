@@ -1,42 +1,42 @@
 import store from '../../store/store'
 
 import { updateRegionUnits, updateRegionPlayerId } from '../../store/region/Region.actions'
-import { removeAttack, updateAttackPosition } from '../../store/attack/Attack.actions'
+import { removeMove, updateMovePosition } from '../../store/move/Move.actions'
 
 import { selectRegionById } from '../../store/region/Region.selectors'
 import { selectCountryById } from '../../store/country/Country.selectors'
-import { selectAllAttacks } from '../../store/attack/Attack.selectors'
+import { selectAllMoves } from '../../store/move/Move.selectors'
 
-export function updateAttacks () {
-    let attacks = selectAllAttacks(store.getState())
-    attacks.forEach(attack => {
-        let toRegion = selectRegionById(store.getState(), attack.toRegionId)
+export function updateMoves() {
+    let moves = selectAllMoves(store.getState())
+    moves.forEach(move => {
+        let toRegion = selectRegionById(store.getState(), move.toRegionId)
         let toCountry = selectCountryById(store.getState(), toRegion.countryId)
-        let fromPlayerId = attack.fromPlayerId 
+        let fromPlayerId = move.fromPlayerId 
         let toPlayerId = toRegion.playerId
-        let currentPosition = attack.position
+        let currentPosition = move.position
 
         if(arrived(currentPosition, toCountry.capital.center)) {
             let regionUnits = toRegion.units
-            let attackUnits = attack.units
+            let moveUnits = move.units
 
             if(toPlayerId === fromPlayerId) {
-                let units = regionUnits + attackUnits
+                let units = regionUnits + moveUnits
                 store.dispatch(updateRegionUnits({regionId: toRegion.id, units}))
-            } else if(regionUnits >= attackUnits) {
-                let units = regionUnits - attackUnits
+            } else if(regionUnits >= moveUnits) {
+                let units = regionUnits - moveUnits
                 store.dispatch(updateRegionUnits({regionId: toRegion.id, units}))
             } else {
-                let units = attackUnits - regionUnits
-                let playerId = attack.fromPlayerId
+                let units = moveUnits - regionUnits
+                let playerId = move.fromPlayerId
                 store.dispatch(updateRegionUnits({regionId: toRegion.id, units}))
                 store.dispatch(updateRegionPlayerId({regionId: toRegion.id, playerId}))
             }
             
-            store.dispatch(removeAttack(attack.id))
+            store.dispatch(removeMove(move.id))
         } else {
             let newPosition = getNewPosition(currentPosition, toCountry.capital.center)
-            store.dispatch(updateAttackPosition({attackId: attack.id, position: newPosition}))
+            store.dispatch(updateMovePosition({moveId: move.id, position: newPosition}))
         }
     })
 }

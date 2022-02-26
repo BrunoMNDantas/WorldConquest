@@ -1,13 +1,13 @@
 import { declareIfCurrentPlayerLost, declareIfGameFinish } from "./ResultUpdater"
 import { updateUnits } from "./UnitsUpdater"
-import { updateAttacks } from "./AttacksUpdater"
-import { updateBots, createAttack } from "./BotsUpdater"
+import { updateMoves } from "./MovesUpdater"
+import { updateBots, createMove } from "./BotsUpdater"
 
 export {
     declareIfCurrentPlayerLost,
     declareIfGameFinish,
     updateUnits,
-    updateAttacks,
+    updateMoves,
     updateBots,
-    createAttack
+    createMove
 }

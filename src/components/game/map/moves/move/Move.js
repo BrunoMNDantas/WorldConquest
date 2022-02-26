@@ -1,21 +1,21 @@
 import React from "react"
 import { useSelector } from 'react-redux'
-import { selectAttackById } from '../../../../../store/attack/Attack.selectors'
+import { selectMoveById } from '../../../../../store/move/Move.selectors'
 import { selectPlayerById } from '../../../../../store/player/Player.selectors'
 import { selectCountryById } from '../../../../../store/country/Country.selectors'
 import { Marker, Tooltip } from 'react-leaflet'
 import L from 'leaflet';
 
 
-const Attack = ({attackId}) => {
-  console.log("::Attack::")
+const Move = ({moveId}) => {
+  console.log("::Move::")
 
-  const attack = useSelector(state => selectAttackById(state, attackId))
-  const fromPlayer =  useSelector(state => selectPlayerById(state, attack?.fromPlayerId))
+  const move = useSelector(state => selectMoveById(state, moveId))
+  const fromPlayer =  useSelector(state => selectPlayerById(state, move?.fromPlayerId))
   const fromPlayerInitialCountry = useSelector(state => selectCountryById(state, fromPlayer?.initialCountry))
 
-  const lat = attack?.position.lat;
-  const lng = attack?.position.lng;
+  const lat = move?.position.lat;
+  const lng = move?.position.lng;
 
   const icon = new L.Icon({
     iconUrl: fromPlayer && fromPlayerInitialCountry ? fromPlayerInitialCountry.flagUrl : "",
@@ -32,12 +32,12 @@ const Attack = ({attackId}) => {
   return (
     <div>
       {
-        attack ? 
+        move ? 
         <Marker
-          key={"Attack " + attack.id}
+          key={"Move " + move.id}
           position={[lat, lng]}
           icon={icon}>        
-          <Tooltip direction="top" offset={[0, 0]} opacity={1} permanent>{attack.units}</Tooltip>
+          <Tooltip direction="top" offset={[0, 0]} opacity={1} permanent>{move.units}</Tooltip>
         </Marker>
         :
         null
@@ -46,4 +46,4 @@ const Attack = ({attackId}) => {
   );
 }
 
-export default Attack;
+export default Move;

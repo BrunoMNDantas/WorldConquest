@@ -1,4 +1,4 @@
-export const ATTACKS_UPDATE_INTERVAL = 100;
+export const MOVES_UPDATE_INTERVAL = 100;
 export const UNITS_UPDATE_INTERVAL = 1000;
 export const BOTS_UPDATE_INTERVAL = 5000;
 

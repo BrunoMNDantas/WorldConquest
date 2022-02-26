@@ -1,5 +1,5 @@
 import React from "react"
-import Attacks from './attacks/Attacks'
+import Moves from './moves/Moves'
 import Regions from './regions/Regions'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { useSelector } from "react-redux"
@@ -24,7 +24,7 @@ const Map = ({
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
       <Regions/>
-      <Attacks/>
+      <Moves/>
     </MapContainer>
   );
 }

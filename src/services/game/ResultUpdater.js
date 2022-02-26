@@ -4,7 +4,7 @@ import { setCurrentPlayerLost, setWinner } from '../../store/game/Game.actions'
 
 import { selectAllRegions } from '../../store/region/Region.selectors'
 import { selectCurrentPlayerId, selectCurrentPlayerLost, selectWinner } from '../../store/game/Game.selectors'
-import { selectAllAttacks } from '../../store/attack/Attack.selectors'
+import { selectAllMoves } from '../../store/move/Move.selectors'
 
 
 export function declareIfCurrentPlayerLost() {
@@ -27,11 +27,11 @@ export function hasCurrentPlayerLost() {
     if(regions.some(region => region.playerId === currentPlayerId)) {//Current player has regions
         return false
     } else {//Current player doesn't have regions
-        let attacks = selectAllAttacks(store.getState())
+        let moves = selectAllMoves(store.getState())
 
-        if(attacks.some(attack => attack.fromPlayerId === currentPlayerId)) {//Current player has attacks in progress
+        if(moves.some(move => move.fromPlayerId === currentPlayerId)) {//Current player has moves in progress
             return false
-        } else {//Current player doesn't have attacks in progress
+        } else {//Current player doesn't have moves in progress
             return true
         }
     }
@@ -71,12 +71,12 @@ export function hasGameFinished() {
             return false
         } else {//There is only one player with regions
             let player = regionsPlayers[0]
-            let attacks = selectAllAttacks(store.getState())
-            let attacksFromPlayers = attacks.map(attack => attack.fromPlayerId).filter(distinct)
+            let moves = selectAllMoves(store.getState())
+            let movesFromPlayers = moves.map(move => move.fromPlayerId).filter(distinct)
     
-            if(attacksFromPlayers.every(playerId => playerId === player.id)) {//All attacks are from the player that controlls all regions
+            if(movesFromPlayers.every(playerId => playerId === player.id)) {//All moves are from the player that controlls all regions
                 return true;
-            } else {//There are attacks that came from other players
+            } else {//There are moves that came from other players
                 return false;
             }
         }

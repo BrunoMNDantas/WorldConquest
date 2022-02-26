@@ -2,15 +2,15 @@ import store from '../../store/store'
 
 import { setSelectedRegionId } from '../../store/game/Game.actions'
 import { updateRegionUnits } from '../../store/region/Region.actions'
-import { addAttack } from '../../store/attack/Attack.actions'
+import { addMove } from '../../store/move/Move.actions'
 
 import { selectAllRegions, selectRegionsOfPlayer } from '../../store/region/Region.selectors'
 import { selectCountryById } from '../../store/country/Country.selectors'
 import { selectCurrentPlayerId } from '../../store/game/Game.selectors'
-import { selectAttacksFromPlayer } from '../../store/attack/Attack.selectors'
+import { selectMovesFromPlayer } from '../../store/move/Move.selectors'
 import { selectAllPlayers } from '../../store/player/Player.selectors'
 
-import { buildAttack } from '../attack/AttackService'
+import { buildMove } from '../move/MoveService'
 
 
 export const updateBots = () => {
@@ -39,18 +39,18 @@ export function updateBotAsDummy(bot) {
 
     let othersRegions = regions.filter(region => region.playerId !== bot.id)
 
-    if(othersRegions.length === 0)//There are no regions to attacks
+    if(othersRegions.length === 0)//There are no regions to moves
         return;
 
-    let botAttacks = selectAttacksFromPlayer(store.getState(), bot.id)
+    let botMoves = selectMovesFromPlayer(store.getState(), bot.id)
 
-    if(botAttacks.length !== 0)//Bot has attacks in progress. Wait to for attacks to finish to decide the nest step
+    if(botMoves.length !== 0)//Bot has moves in progress. Wait to for moves to finish to decide the nest step
         return;
         
     let botRegionWithMostUnits = botRegions.sort((a,b) => a.units - b.units)[botRegions.length-1]
     let othersRegionWithLessUnits = othersRegions.sort((a,b) => a.units - b.units)[0]
 
-    createAttack(botRegionWithMostUnits, othersRegionWithLessUnits)
+    createMove(botRegionWithMostUnits, othersRegionWithLessUnits)
 }
 
 export function updateBotAsNormal(bot) {
@@ -63,19 +63,19 @@ export function updateBotAsNormal(bot) {
 
     let othersRegions = regions.filter(region => region.playerId !== bot.id)
 
-    if(othersRegions.length === 0)//There are no regions to attacks
+    if(othersRegions.length === 0)//There are no regions to moves
         return;
 
-    let botAttacks = selectAttacksFromPlayer(store.getState(), bot.id)
+    let botMoves = selectMovesFromPlayer(store.getState(), bot.id)
 
-    if(botAttacks.length !== 0)//Bot has attacks in progress. Wait to for attacks to finish to decide the nest step
+    if(botMoves.length !== 0)//Bot has moves in progress. Wait to for moves to finish to decide the nest step
         return;
         
     let botRegionWithMostUnits = botRegions.sort((a,b) => a.units - b.units)[botRegions.length-1]
     let othersRegionWithLessUnits = othersRegions.sort((a,b) => a.units - b.units)[0]
 
     if(botRegionWithMostUnits.units > othersRegionWithLessUnits.units) {
-        createAttack(botRegionWithMostUnits, othersRegionWithLessUnits)
+        createMove(botRegionWithMostUnits, othersRegionWithLessUnits)
     }
 }
 
@@ -89,32 +89,32 @@ export function updateBotAsExpert(bot) {
 
     let othersRegions = regions.filter(region => region.playerId !== bot.id)
 
-    if(othersRegions.length === 0)//There are no regions to attacks
+    if(othersRegions.length === 0)//There are no regions to moves
         return;
 
-    let botAttacks = selectAttacksFromPlayer(store.getState(), bot.id)
+    let botMoves = selectMovesFromPlayer(store.getState(), bot.id)
 
-    if(botAttacks.length !== 0)//Bot has attacks in progress. Wait to for attacks to finish to decide the nest step
+    if(botMoves.length !== 0)//Bot has moves in progress. Wait to for moves to finish to decide the nest step
         return;
         
     let botRegionWithMostUnits = botRegions.sort((a,b) => a.units - b.units)[botRegions.length-1]
     let othersRegionWithLessUnits = othersRegions.sort((a,b) => a.units - b.units)[0]
 
     if(botRegionWithMostUnits.units > othersRegionWithLessUnits.units) {
-        createAttack(botRegionWithMostUnits, othersRegionWithLessUnits)
+        createMove(botRegionWithMostUnits, othersRegionWithLessUnits)
     } else {
         let botWaekRegions = botRegions.filter(region => region.id !== botRegionWithMostUnits.id)
         botWaekRegions.forEach(weakRegion => {
-            createAttack(weakRegion, botRegionWithMostUnits)
+            createMove(weakRegion, botRegionWithMostUnits)
         })
     }
 }
 
-export function createAttack(fromRegion, toRegion) {
+export function createMove(fromRegion, toRegion) {
     let fromCountry = selectCountryById(store.getState(), fromRegion.countryId)
     
-    let attack = buildAttack(fromRegion, toRegion, fromCountry)
-    store.dispatch(addAttack(attack))
+    let move = buildMove(fromRegion, toRegion, fromCountry)
+    store.dispatch(addMove(move))
     
     store.dispatch(updateRegionUnits({regionId: fromRegion.id, units: 0}))
 

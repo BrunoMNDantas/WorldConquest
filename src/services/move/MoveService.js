@@ -1,4 +1,4 @@
-export function buildAttack(fromRegion, toRegion, fromCountry) {
+export function buildMove(fromRegion, toRegion, fromCountry) {
     return {
         id: Math.trunc(Math.random() * 1000000),
         fromRegionId: fromRegion.id,

@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import PlayerSlice from './player/Player.reducer'
 import CountrySlice from './country/Country.reducer'
 import RegionSlice from './region/Region.reducer'
-import AttackSlice from './attack/Attack.reducer'
+import MoveSlice from './move/Move.reducer'
 import GameSlice from './game/Game.reducer'
 
 export default configureStore({
@@ -10,7 +10,7 @@ export default configureStore({
       players: PlayerSlice, 
       countries: CountrySlice,
       regions: RegionSlice,
-      attacks: AttackSlice,
+      moves: MoveSlice,
       game: GameSlice
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
