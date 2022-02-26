@@ -25,13 +25,13 @@ const RegionDetail = () => {
                 <div className={style.infoContainer}>
                     <ListItem>
                         <ListItemAvatar disablePadding>
-                            <img src={country?.flagUrl} className={style.image}/>
+                            <img src={country?.flagUrl} className={style.countryFlagImage}/>
                         </ListItemAvatar>
                         <ListItemText primary={country?.name} secondary={country?.capital.name} disablePadding/>
                     </ListItem>
                     <ListItem>
                         <ListItemAvatar disablePadding>
-                            <img src={playerInitialCountry?.flagUrl} className={style.image}/>
+                            <img src={player?.avatar} className={style.avatarImage} style={{borderColor:player?.color}}/>
                         </ListItemAvatar>
                         <ListItemText primary={player?.name} disablePadding/>
                     </ListItem>

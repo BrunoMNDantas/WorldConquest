@@ -69,7 +69,7 @@ const AttackItem = ({playerId}) => {
                 onClick={() => setOpen(!open)}>
                 <ListItemAvatar>
                     <img 
-                        src={initialCountry.flagUrl} 
+                        src={player.avatar} 
                         className={style.image} 
                         style={{borderColor:player.color}}/>
                 </ListItemAvatar>
