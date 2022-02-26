@@ -1,5 +1,5 @@
 .list {
     width: 300px;
-    height: 300px;
+    max-height: 20vh;
     overflow-y: auto;
 }
