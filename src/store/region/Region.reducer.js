@@ -28,6 +28,12 @@ export const regionSlice = createSlice({
       let region = state.entities[regionId]
       region.playerId = playerId
     },
+
+    updateRegionMoney: (state, action) => {
+      let {regionId, money} = action.payload
+      let region = state.entities[regionId]
+      region.money = money
+    }
   },
 })
 

@@ -16,7 +16,8 @@ export function buildRegions(countries, players) {
             id: id++,
             countryId: country.id,
             playerId: player?.id,
-            units: normalizePopulation(minPopulation, maxPopulation, country.population)
+            units: normalizePopulation(minPopulation, maxPopulation, country.population),
+            money: 0 
         })
     })
 

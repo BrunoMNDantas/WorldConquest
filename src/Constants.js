@@ -1,6 +1,7 @@
 export const MOVES_UPDATE_INTERVAL = 100;
 export const UNITS_UPDATE_INTERVAL = 1000;
 export const BOTS_UPDATE_INTERVAL = 5000;
+export const MONEY_UPDATE_INTERVAL = 1000;
 
 export const MIN_INITIAL_UNITS = 10;
 export const MAX_INITIAL_UNITS = 100;

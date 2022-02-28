@@ -8,6 +8,7 @@ export const {
     updateRegions, 
     updateRegion,
     updateRegionUnits,
-    updateRegionPlayerId
+    updateRegionPlayerId,
+    updateRegionMoney
 } = regionSlice.actions
 

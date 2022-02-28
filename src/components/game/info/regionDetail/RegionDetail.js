@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import style from './RegionDetail.module.css'
 import { Slide, Paper, Divider, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
 import Person from "@material-ui/icons/Person";
+import MonetizationOn from "@material-ui/icons/MonetizationOn";
 
 import { selectRegionById } from "../../../../store/region/Region.selectors";
 import { selectSelectedRegionId } from "../../../../store/game/Game.selectors";
@@ -40,6 +41,12 @@ const RegionDetail = () => {
                             <Person fontSize="large"/>  
                         </ListItemAvatar>
                         <ListItemText primary={"Units"} secondary={region?.units} disablePadding/>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemAvatar disablePadding>
+                            <MonetizationOn fontSize="large"/>  
+                        </ListItemAvatar>
+                        <ListItemText primary={"Money"} secondary={region?.money} disablePadding/>
                     </ListItem>
                 </div>
                 <Divider orientation="vertical" flexItem light/>

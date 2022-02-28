@@ -1,4 +1,4 @@
-import { MOVES_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL } from '../../Constants'
+import { MOVES_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL, MONEY_UPDATE_INTERVAL } from '../../Constants'
 
 import store from '../../store/store'
 
@@ -7,11 +7,12 @@ import { setSelectedRegionId } from '../../store/game/Game.actions'
 import { selectRegionById } from '../../store/region/Region.selectors'
 import { selectCurrentPlayerId, selectSelectedRegionId } from '../../store/game/Game.selectors';
 
-import { declareIfCurrentPlayerLost, declareIfGameFinish, updateUnits, updateMoves, updateBots, createMove } from './GameService'
+import { declareIfCurrentPlayerLost, declareIfGameFinish, updateUnits, updateMoves, updateBots, createMove, updateMoney } from './GameService'
 
 let updateUnitsInterval
 let updateMovesInterval
 let updateBotsInterval
+let updateMoneyInterval
 
 export const runEngine = () => {
     updateUnitsInterval = setInterval(() => {    
@@ -28,6 +29,11 @@ export const runEngine = () => {
         updateBots()
         checkGameFinishAndPlayerLost()
     }, BOTS_UPDATE_INTERVAL)
+
+    updateMoneyInterval = setInterval(() => {
+        updateMoney()
+        checkGameFinishAndPlayerLost()
+    }, MONEY_UPDATE_INTERVAL)
 }
 
 const checkGameFinishAndPlayerLost = () => {
@@ -37,6 +43,7 @@ const checkGameFinishAndPlayerLost = () => {
         clearInterval(updateUnitsInterval)
         clearInterval(updateMovesInterval)
         clearInterval(updateBotsInterval)
+        clearInterval(updateMoneyInterval)
     }
 }
 

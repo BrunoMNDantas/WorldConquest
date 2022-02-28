@@ -21,3 +21,6 @@ export const selectCountryIdOfRegion = createSelector(
 export const selectUnitsOfRegion = createSelector(
     [selectRegionById],
     (region) => region.units)
+export const selectMoneyOfRegion = createSelector(
+    [selectRegionById],
+    (region) => region.money)
