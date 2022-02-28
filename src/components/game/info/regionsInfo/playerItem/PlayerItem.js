@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import style from './RegionItem.module.css'
+import style from './PlayerItem.module.css'
 
 import { Collapse, List, ListItem, ListItemText, ListItemAvatar } from '@material-ui/core';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
@@ -10,7 +10,7 @@ import { selectPlayerById } from '../../../../../store/player/Player.selectors';
 import { selectRegionsOfPlayer, selectRegionById } from '../../../../../store/region/Region.selectors';
 import { selectCountryById } from '../../../../../store/country/Country.selectors';
 
-const Item = ({regionId}) => {
+const RegionItem = ({regionId}) => {
     const region = useSelector(state => selectRegionById(state, regionId))
     const country = useSelector(state => selectCountryById(state, region.countryId))
 
@@ -24,7 +24,7 @@ const Item = ({regionId}) => {
     )  
 }
 
-const RegionItem = ({playerId}) => {
+const PlayerItem = ({playerId}) => {
     console.log(":Region Item::")
 
     const [open, setOpen] = useState(false)
@@ -52,11 +52,11 @@ const RegionItem = ({playerId}) => {
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    { regionsOfPlayer.map(region => <Item key={"RegionItem " + region.id} regionId={region.id}/>) }
+                    { regionsOfPlayer.map(region => <RegionItem key={"RegionItem " + region.id} regionId={region.id}/>) }
                 </List>
             </Collapse>
         </div>
     )
 }
 
-export default RegionItem;
+export default PlayerItem;

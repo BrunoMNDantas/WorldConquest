@@ -7,7 +7,7 @@ import { selectPlayersIds } from '../../../../store/player/Player.selectors'
 import { List } from '@material-ui/core';
 import { Language } from '@material-ui/icons';
 import InfoPanel from '../infoPanel/InfoPanel';
-import RegionItem from './regionItem/RegionItem';
+import PlayerItem from './playerItem/PlayerItem';
 
 
 const RegionsInfo = () => {
@@ -19,7 +19,7 @@ const RegionsInfo = () => {
     return (
         <InfoPanel tooltip="Players Regions" icon={<Language/>}>
             <List className={style.list}>
-                {playersIdSorted.map(id => <RegionItem key={"RegionsInfo " + id} playerId={id}/>)}
+                {playersIdSorted.map(id => <PlayerItem key={"RegionsInfo " + id} playerId={id}/>)}
             </List>
         </InfoPanel>
     )
