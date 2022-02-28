@@ -1,0 +1,115 @@
+.root {
+    padding-left: 40px !important;
+    display: flex;
+}
+
+.root:hover {
+    background-color: rgba(255, 255, 255, 0.63) !important;
+}
+
+.leftContent { 
+    margin-right: auto;
+    display: flex;
+    align-items: baseline;
+}
+
+.distanceContent { 
+    flex-grow: 1;   
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rightContent { 
+    margin-left: auto;
+    display: flex;
+    align-items: baseline;
+}
+
+.leftPlayerAvatar, .rightPlayerAvatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: solid 3px;
+}
+
+.noPlayerAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: solid 3px transparent;
+}
+
+.leftCountryFlag, .rightCountryFlag {
+    width: 15px;
+    height: 10px;
+    border-radius: 10%;
+}
+
+.itemLineContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.distance {
+    text-align: center;
+}
+
+.attackingLine {
+    width: 100%;
+    height: 3px;
+    background-color: rgb(255, 62, 62);
+    animation: attackingLineAnimation 2s infinite;
+}
+
+@keyframes attackingLineAnimation {
+    from {
+        background-color: rgb(255, 153, 153); 
+        width: 1%;
+    }
+    to {
+        background-color: rgb(255, 62, 62); 
+        width: 100%;
+    }
+}
+
+.underAttackLine {
+    margin-left: auto;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(255, 62, 62);
+    animation: underAttackLineAnimation 2s infinite;
+}
+
+@keyframes underAttackLineAnimation {
+    from {
+        background-color: rgb(255, 153, 153); 
+        width: 1%;
+    }
+    to {
+        background-color: rgb(255, 62, 62); 
+        width: 100%;
+    }
+}
+
+.joinLine {
+    width: 100%;
+    height: 3px;
+    background-color: rgb(15, 148, 33);
+    animation: joinLineAnimation 2s infinite;
+}
+
+@keyframes joinLineAnimation {
+    from {
+        background-color: rgb(116, 177, 121); 
+        width: 1%;
+    }
+    to {
+        background-color: rgb(15, 148, 33); 
+        width: 100%;
+    }
+}
