@@ -23,7 +23,9 @@
 }
 
 .regionDetail {
-    margin: auto;
-    margin-bottom: 50px;
+    width: fit-content;
+    align-self: center;
+    position: absolute;
+    bottom: 5vh;
     pointer-events: all;
 }
