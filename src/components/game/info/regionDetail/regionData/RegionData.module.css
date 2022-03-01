@@ -1,0 +1,57 @@
+.topContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.countryContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.countryFlagImage {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: solid 3px transparent;
+}
+
+.playerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.avatarImage {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: solid 3px;
+}
+
+.bottomContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.unitsContainer {
+    display: flex;
+    align-items: center;
+}
+
+.units {
+    margin-left: 5px;
+}
+
+.moneyContainer {
+    display: flex;
+    align-items: center;
+}
+
+.money {
+    margin-left: 5px;
+}

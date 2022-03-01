@@ -7,25 +7,14 @@
     padding: 15px;
 }
 
-.infoContainer {
-    width: 40%;
-    
+.leftContainer {
+    width: 35%;  
+    height: 100%;  
+    margin-right: 10px;
 }
 
-.actionsContainer {
-    width: 60%;
-    
-}
-
-.countryFlagImage {
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-}
-
-.avatarImage {
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    border: solid 3px;
+.rightContainer {
+    width: 65%;   
+    height: 100%;
+    margin-left: 10px;
 }
