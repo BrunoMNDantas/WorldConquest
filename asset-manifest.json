@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/WorldConquest/static/css/main.9b3c5703.css",
-    "main.js": "/WorldConquest/static/js/main.e8d2f9e6.js",
+    "main.css": "/WorldConquest/static/css/main.826cf705.css",
+    "main.js": "/WorldConquest/static/js/main.5e81ee91.js",
     "static/js/787.e781db54.chunk.js": "/WorldConquest/static/js/787.e781db54.chunk.js",
     "static/media/roboto-all-400-normal.woff": "/WorldConquest/static/media/roboto-all-400-normal.376ea5d93f71583052f6.woff",
     "static/media/roboto-latin-400-normal.woff2": "/WorldConquest/static/media/roboto-latin-400-normal.4673b4537a84c7f7a130.woff2",
@@ -12,12 +12,12 @@
     "static/media/roboto-vietnamese-400-normal.woff2": "/WorldConquest/static/media/roboto-vietnamese-400-normal.c0bec65d01f776c00c91.woff2",
     "static/media/roboto-greek-ext-400-normal.woff2": "/WorldConquest/static/media/roboto-greek-ext-400-normal.bb723e8458c9c653e505.woff2",
     "index.html": "/WorldConquest/index.html",
-    "main.9b3c5703.css.map": "/WorldConquest/static/css/main.9b3c5703.css.map",
-    "main.e8d2f9e6.js.map": "/WorldConquest/static/js/main.e8d2f9e6.js.map",
+    "main.826cf705.css.map": "/WorldConquest/static/css/main.826cf705.css.map",
+    "main.5e81ee91.js.map": "/WorldConquest/static/js/main.5e81ee91.js.map",
     "787.e781db54.chunk.js.map": "/WorldConquest/static/js/787.e781db54.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b3c5703.css",
-    "static/js/main.e8d2f9e6.js"
+    "static/css/main.826cf705.css",
+    "static/js/main.5e81ee91.js"
   ]
 }
