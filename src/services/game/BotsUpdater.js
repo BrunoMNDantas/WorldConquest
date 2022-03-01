@@ -1,6 +1,5 @@
 import store from '../../store/store'
 
-import { setSelectedRegionId } from '../../store/game/Game.actions'
 import { updateRegionUnits } from '../../store/region/Region.actions'
 import { addMove } from '../../store/move/Move.actions'
 
@@ -117,6 +116,4 @@ export function createMove(fromRegion, toRegion) {
     store.dispatch(addMove(move))
     
     store.dispatch(updateRegionUnits({regionId: fromRegion.id, units: 0}))
-
-    store.dispatch(setSelectedRegionId(null))
 }
