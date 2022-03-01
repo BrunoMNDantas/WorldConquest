@@ -1,4 +1,4 @@
-import { MAX_INITIAL_UNITS, MIN_INITIAL_UNITS } from "../../Constants";
+import { BANK_LEVELS, HOUSE_LEVELS, MOVE_LEVELS } from "../../Constants"
 
 export function buildRegions(countries, players) {
     let id = 1;
@@ -17,7 +17,10 @@ export function buildRegions(countries, players) {
             countryId: country.id,
             playerId: player?.id,
             units: normalizePopulation(minPopulation, maxPopulation, country.population),
-            money: 0 
+            money: 0,
+            houseLevel: HOUSE_LEVELS[0],
+            bankLevel: BANK_LEVELS[0],
+            moveLevel: MOVE_LEVELS[0]
         })
     })
 
@@ -27,7 +30,9 @@ export function buildRegions(countries, players) {
 export function normalizePopulation(min, max, population) {
     const normalize = (minVal, maxVal, val) => (val - minVal) / (maxVal - min)
 
+    const maxInitialUnits = HOUSE_LEVELS[0].maxUnits
+    const minInitialUnits = 0
     let normalized = normalize(min, max, population)
 
-    return Math.round(normalized * MAX_INITIAL_UNITS) + MIN_INITIAL_UNITS
+    return Math.round(normalized * maxInitialUnits) + minInitialUnits
 }

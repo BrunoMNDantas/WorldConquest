@@ -55,3 +55,46 @@
 .money {
     margin-left: 5px;
 }
+
+.upgradesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.upgradeHouseContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.upgradeHouseContainer button {
+    width: 65px;
+    height: 30px;
+}
+
+.upgradeBankContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.upgradeBankContainer button {
+    width: 65px;
+    height: 30px;
+}
+
+.upgradeMoveContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.upgradeMoveContainer button {
+    width: 65px;
+    height: 30px;
+}

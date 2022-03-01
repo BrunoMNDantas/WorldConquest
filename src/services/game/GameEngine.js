@@ -1,4 +1,4 @@
-import { MOVES_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL, MONEY_UPDATE_INTERVAL } from '../../Constants'
+import { MOVES_UPDATE_INTERVAL, UNITS_UPDATE_INTERVAL, BOTS_UPDATE_INTERVAL, MONEY_UPDATE_INTERVAL, HOUSE_LEVELS, BANK_LEVELS, MOVE_LEVELS } from '../../Constants'
 
 import store from '../../store/store'
 
@@ -8,6 +8,7 @@ import { selectRegionById } from '../../store/region/Region.selectors'
 import { selectCurrentPlayerId, selectSelectedRegionId } from '../../store/game/Game.selectors';
 
 import { declareIfCurrentPlayerLost, declareIfGameFinish, updateUnits, updateMoves, updateBots, createMove, updateMoney } from './GameService'
+import { updateRegionHouseLevel, updateRegionBankLevel, updateRegionMoveLevel, updateRegionMoney } from '../../store/region/Region.actions';
 
 let updateUnitsInterval
 let updateMovesInterval
@@ -70,4 +71,31 @@ export function selectRegion(regionId) {
             }
         }
     } 
+}
+
+export function increaseHouseLevel(regionId) {
+    let region = selectRegionById(store.getState(), regionId)
+    let nextLevel = HOUSE_LEVELS[region.houseLevel.level + 1]
+    let money = region.money - nextLevel.price
+
+    store.dispatch(updateRegionHouseLevel({regionId, level: nextLevel}))
+    store.dispatch(updateRegionMoney({regionId, money}))
+}
+
+export function increaseBankLevel(regionId) {
+    let region = selectRegionById(store.getState(), regionId)
+    let nextLevel = BANK_LEVELS[region.bankLevel.level + 1]
+    let money = region.money - nextLevel.price
+
+    store.dispatch(updateRegionBankLevel({regionId, level: nextLevel}))
+    store.dispatch(updateRegionMoney({regionId, money}))
+}
+
+export function increaseMoveLevel(regionId) {
+    let region = selectRegionById(store.getState(), regionId)
+    let nextLevel = MOVE_LEVELS[region.moveLevel.level + 1]
+    let money = region.money - nextLevel.price
+
+    store.dispatch(updateRegionMoveLevel({regionId, level: nextLevel}))
+    store.dispatch(updateRegionMoney({regionId, money}))
 }

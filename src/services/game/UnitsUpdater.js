@@ -3,7 +3,6 @@ import store from '../../store/store'
 import { updateRegionUnits } from '../../store/region/Region.actions'
 
 import { selectAllRegions } from '../../store/region/Region.selectors'
-import { MAX_UNITS } from '../../Constants'
 
 
 export function updateUnits() {
@@ -18,9 +17,10 @@ export function updateUnits() {
 }
 
 export function calculateUnits(region) {
-    let currentUnits = region.units
+    const currentUnits = region.units
+    const maxUnits = region.houseLevel.maxUnits
 
-    if(currentUnits >= MAX_UNITS)
+    if(currentUnits >= maxUnits)
         return currentUnits
 
     return currentUnits + 1;

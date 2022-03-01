@@ -24,3 +24,12 @@ export const selectUnitsOfRegion = createSelector(
 export const selectMoneyOfRegion = createSelector(
     [selectRegionById],
     (region) => region.money)
+export const selectHouseLevelOfRegion = createSelector(
+    [selectRegionById],
+    (region) => region.houseLevel)
+export const selectBankLevelOfRegion = createSelector(
+    [selectRegionById],
+    (region) => region.bankLevel)
+export const selectMoveLevelOfRegion = createSelector(
+    [selectRegionById],
+    (region) => region.moveLevel)

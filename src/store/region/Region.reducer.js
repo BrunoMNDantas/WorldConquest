@@ -33,7 +33,25 @@ export const regionSlice = createSlice({
       let {regionId, money} = action.payload
       let region = state.entities[regionId]
       region.money = money
-    }
+    },
+
+    updateRegionHouseLevel: (state, action) => {
+      let {regionId, level} = action.payload
+      let region = state.entities[regionId]
+      region.houseLevel = level
+    },
+
+    updateRegionBankLevel: (state, action) => {
+      let {regionId, level} = action.payload
+      let region = state.entities[regionId]
+      region.bankLevel = level
+    },
+
+    updateRegionMoveLevel: (state, action) => {
+      let {regionId, level} = action.payload
+      let region = state.entities[regionId]
+      region.moveLevel = level
+    },
   },
 })
 

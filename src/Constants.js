@@ -1,11 +1,7 @@
-export const MOVES_UPDATE_INTERVAL = 100;
+export const MOVES_UPDATE_INTERVAL = 1000;
 export const UNITS_UPDATE_INTERVAL = 1000;
 export const BOTS_UPDATE_INTERVAL = 5000;
 export const MONEY_UPDATE_INTERVAL = 1000;
-
-export const MIN_INITIAL_UNITS = 10;
-export const MAX_INITIAL_UNITS = 100;
-export const MAX_UNITS = 200;
 
 export const NO_PLAYER_COLOR = "#000000";
 
@@ -40,3 +36,102 @@ export const DIFFICULTY_LEVELS = [
     { level: 2, name:"Normal" },
     { level: 3, name:"Hard" },
 ];
+
+export const HOUSE_LEVELS = [
+    {
+        level: 0,
+        description: "Increases the max number of units that a region can have.",
+        maxUnits: 200,
+        price: 0
+    },
+    {
+        level: 1,
+        description: "Increases the max number of units that a region can have.",
+        maxUnits: 300,
+        price: 10
+    },
+    {
+        level: 2,
+        description: "Increases the max number of units that a region can have.",
+        maxUnits: 400,
+        price: 20
+    },
+    {
+        level: 3,
+        description: "Increases the max number of units that a region can have.",
+        maxUnits: 500,
+        price: 30
+    },
+    {
+        level: 4,
+        description: "Increases the max number of units that a region can have.",
+        maxUnits: 500,
+        price: 40
+    }
+]
+
+export const BANK_LEVELS = [
+    {
+        level: 0,
+        description: "Increases the ammount of money a region geretates.",
+        moneyPerUpdate: 1,
+        price: 0
+    },
+    {
+        level: 1,
+        description: "Increases the ammount of money a region geretates.",
+        moneyPerUpdate: 2,
+        price: 10
+    },
+    {
+        level: 2,
+        description: "Increases the ammount of money a region geretates.",
+        moneyPerUpdate: 3,
+        price: 20
+    },
+    {
+        level: 3,
+        description: "Increases the ammount of money a region geretates.",
+        moneyPerUpdate: 4,
+        price: 30
+    },
+    {
+        level: 4,
+        description: "Increases the ammount of money a region geretates.",
+        moneyPerUpdate: 5,
+        price: 40
+    }
+]
+
+export const MOVE_LEVELS = [
+    {
+        level: 0,
+        description: "Increases the velocity of moves.",
+        kmPerUpdate: 10,
+        price: 0
+    },
+    {
+        level: 1,
+        description: "Increases the velocity of moves.",
+        kmPerUpdate: 2,
+        price: 10
+    },
+    {
+        level: 2,
+        description: "Increases the velocity of moves.",
+        kmPerUpdate: 20,
+        price: 20
+    },
+    {
+        level: 3,
+        description: "Increases the velocity of moves.",
+        kmPerUpdate: 30,
+        price: 30
+    },
+    {
+        level: 4,
+        description: "Increases the velocity of moves.",
+        kmPerUpdate: 40,
+        price: 40
+    }
+]

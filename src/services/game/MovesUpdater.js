@@ -35,7 +35,8 @@ export function updateMoves() {
             
             store.dispatch(removeMove(move.id))
         } else {
-            let newPosition = getNewPosition(currentPosition, toCountry.capital.center)
+            let fromRegion = selectRegionById(store.getState(), move.fromRegionId)
+            let newPosition = getNewPosition(currentPosition, toCountry.capital.center, fromRegion.moveLevel)
             store.dispatch(updateMovePosition({moveId: move.id, position: newPosition}))
         }
     })
@@ -54,7 +55,7 @@ export function arrived(currentPosition, toPosition) {
     return latDistance <= 0.05 && lngDistance <= 0.05
 }
 
-export function getNewPosition(currentPosition, toPosition) {
+export function getNewPosition(currentPosition, toPosition, moveLevel) {
     let fromLat = currentPosition.lat;
     let toLat = toPosition.lat;
 
@@ -70,9 +71,9 @@ export function getNewPosition(currentPosition, toPosition) {
     let latProportion = Math.abs(latDistance)/Math.abs(lngDistance)
     let lngProportion = Math.abs(lngDistance)/Math.abs(latDistance)
 
-    let lat = currentPosition.lat + (latDirection * latProportion * 0.05)
+    let lat = currentPosition.lat + (latDirection * latProportion * (0.005 * moveLevel.kmPerUpdate))
 
-    let lng = currentPosition.lng + (lngDirection * lngProportion * 0.05)
+    let lng = currentPosition.lng + (lngDirection * lngProportion * (0.005 * moveLevel.kmPerUpdate))
 
     return { lat, lng };
 }

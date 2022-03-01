@@ -9,7 +9,8 @@ export function updateMoney() {
     let regions = selectAllRegions(store.getState())
 
     regions.forEach(region => {
-        let money = region.money + 1
+        let increment = region.bankLevel.moneyPerUpdate
+        let money = region.money + increment
         store.dispatch(updateRegionMoney({regionId: region.id, money}))
     })
 }
