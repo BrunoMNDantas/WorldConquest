@@ -16,7 +16,7 @@ const RegionMoves = ({regionId}) => {
 
     return (
         movesFromRegion.length === 0 && movesToRegion.length === 0 ? 
-            <p className={style.noMoves}>No moves</p> 
+            <div className={style.noMoves}>No moves</div> 
             : 
             <List className={style.list}>
                 {movesFromRegion.map(move => <MoveItem playerId={region.playerId} moveId={move.id}/>)}
