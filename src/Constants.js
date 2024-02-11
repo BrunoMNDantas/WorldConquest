@@ -1,4 +1,4 @@
-export const MOVES_UPDATE_INTERVAL = 1000;
+export const MOVES_UPDATE_INTERVAL = 50;
 export const UNITS_UPDATE_INTERVAL = 1000;
 export const BOTS_UPDATE_INTERVAL = 5000;
 export const MONEY_UPDATE_INTERVAL = 1000;
@@ -107,13 +107,13 @@ export const MOVE_LEVELS = [
     {
         level: 0,
         description: "Increases the velocity of moves.",
-        kmPerUpdate: 10,
+        kmPerUpdate: 1,
         price: 0
     },
     {
         level: 1,
         description: "Increases the velocity of moves.",
-        kmPerUpdate: 2,
+        kmPerUpdate: 10,
         price: 10
     },
     {
