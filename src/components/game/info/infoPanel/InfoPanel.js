@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import style from './InfoPanel.module.css'
 import { Slide, Paper, Button, Tooltip } from '@material-ui/core'
-import { Person } from '@material-ui/icons';
 
 const InfoPanel = ({icon, tooltip, children}) => {
     console.log(":Info Panel::")
