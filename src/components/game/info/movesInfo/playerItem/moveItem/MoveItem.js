@@ -30,8 +30,8 @@ const MoveItem = ({playerId, moveId}) => {
 
     let leftContent = 
         <div className={style.leftContent}>
-            <img src={leftPlayer.avatar} className={style.leftPlayerAvatar} style={{borderColor:leftPlayer.color}}/>
-            <img src={leftCountry.flagUrl} className={style.leftCountryFlag}/>
+            <img src={leftPlayer.avatar} className={style.leftPlayerAvatar} style={{borderColor:leftPlayer.color}} alt=""/>
+            <img src={leftCountry.flagUrl} className={style.leftCountryFlag} alt=""/>
         </div>
 
     let distanceContent = 
@@ -45,12 +45,12 @@ const MoveItem = ({playerId, moveId}) => {
     let rightContent = 
         toPlayer ? 
         <div className={style.rightContent}>
-            <img src={rightCountry.flagUrl} className={style.rightCountryFlag}/>
-            <img src={rightPlayer.avatar} className={style.rightPlayerAvatar} style={{borderColor:rightPlayer.color}}/>
+            <img src={rightCountry.flagUrl} className={style.rightCountryFlag} alt=""/>
+            <img src={rightPlayer.avatar} className={style.rightPlayerAvatar} style={{borderColor:rightPlayer.color}} alt=""/>
         </div>
         :
         <div className={style.rightContent}>
-            <img src={toCountry.flagUrl} className={style.rightCountryFlag}/>
+            <img src={toCountry.flagUrl} className={style.rightCountryFlag} alt=""/>
             <div className={style.noPlayerAvatar} />
         </div>
         

@@ -22,7 +22,7 @@ const PlayerForm = ({player}) => {
     player.color = color
     player.initialCountry = initialCountry
     player.avatar = avatar
-  }, [name, color, initialCountry, avatar])
+  }, [name, color, initialCountry, avatar, player])
 
   return (
     <div className={Styles.root}>
@@ -57,7 +57,7 @@ const PlayerForm = ({player}) => {
               countries.map(country => {
                 return (
                   <MenuItem key={"PlayerFormCountry " + country.id} value={country.name} className={Styles.selectedCountry}>
-                    <img src={country.flagUrl} className={Styles.flag}/>
+                    <img src={country.flagUrl} className={Styles.flag} alt=""/>
                     {country.name}
                   </MenuItem>
                 )
@@ -78,7 +78,7 @@ const PlayerForm = ({player}) => {
               AVATARS.map((avatar, idx)=> {
                 return (
                   <MenuItem key={"PlayerFormAvatar " + idx} value={avatar} className={Styles.selectedAvatar}>
-                    <img src={avatar} className={Styles.avatarImage}/>
+                    <img src={avatar} className={Styles.avatarImage} alt=""/>
                   </MenuItem>
                 )
               })

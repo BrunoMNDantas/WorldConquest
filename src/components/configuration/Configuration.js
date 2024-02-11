@@ -27,7 +27,7 @@ const Configuration = () => {
     useEffect(() => {
       dispatch(addCountries(countries))
       setShowPlayerConfig(true)
-    }, [dispatch])
+    }, [dispatch, countries])
 
     useEffect(() => {
         if(player && difficulty) {
@@ -45,7 +45,7 @@ const Configuration = () => {
           dispatch(setCurrentPlayerId(currentPlayer.id))
           dispatch(addRegions(regions))
         }
-    }, [player, difficulty])
+    }, [player, difficulty, avatars, colors, countries, dispatch])
   
     function onPlayerConfigFinish(player) {
       setPlayer(player)

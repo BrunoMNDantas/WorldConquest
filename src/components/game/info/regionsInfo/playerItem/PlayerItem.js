@@ -17,7 +17,7 @@ const RegionItem = ({regionId}) => {
     return (
         <ListItem style={{paddingLeft:"50px"}}>
             <ListItemAvatar disablePadding>
-                <img src={country.flagUrl} className={style.itemImage}/>
+                <img src={country.flagUrl} className={style.itemImage} alt=""/>
             </ListItemAvatar>
             <ListItemText primary={country.name} disablePadding/>
         </ListItem>
@@ -30,7 +30,6 @@ const PlayerItem = ({playerId}) => {
     const [open, setOpen] = useState(false)
     const currentPlayerId = useSelector(selectCurrentPlayerId)
     const player = useSelector(state => selectPlayerById(state, playerId));
-    const initialCountry = useSelector(state => selectCountryById(state, player.initialCountry))
     const regionsOfPlayer = useSelector(state => selectRegionsOfPlayer(state, playerId))
 
     return (
@@ -43,11 +42,12 @@ const PlayerItem = ({playerId}) => {
                     <img 
                         src={player.avatar} 
                         className={style.image} 
-                        style={{borderColor:player.color}}/>
+                        style={{borderColor:player.color}}
+                        alt=""/>
                 </ListItemAvatar>
                 <ListItemText 
                     primary={player.name} 
-                    secondary={regionsOfPlayer.length + (regionsOfPlayer.length == 1 ? " Region" : " Regions")}/>
+                    secondary={regionsOfPlayer.length + (regionsOfPlayer.length === 1 ? " Region" : " Regions")}/>
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>

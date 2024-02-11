@@ -46,13 +46,13 @@ const RegionData = ({regionId}) => {
             <div className={style.topContainer}>
                 <div className={style.countryContainer}>
                     <ListItemAvatar disablePadding>
-                        <img src={country?.flagUrl} className={style.countryFlagImage}/>
+                        <img src={country?.flagUrl} className={style.countryFlagImage} alt=""/>
                     </ListItemAvatar>
                     <ListItemText primary={country?.name} disablePadding/>
                 </div>
                 <div className={style.playerContainer}>
                     <ListItemAvatar disablePadding>
-                        <img src={player?.avatar} className={style.avatarImage} style={{borderColor:player?.color}}/>
+                        <img src={player?.avatar} className={style.avatarImage} style={{borderColor:player?.color}} alt=""/>
                     </ListItemAvatar>
                     <ListItemText primary={player?.name} disablePadding/>
                 </div>

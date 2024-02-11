@@ -6,7 +6,7 @@ import Germany from './Germany/Germany.json'
 import Switzerland from './Switzerland/Switzerland.json'
 import Austria from './Austria/Austria.json'
 import Belgium from './Belgium/Belgium.json'
-import China from './China/China.json'
+//import China from './China/China.json'
 
 const Countries = [
     Portugal,

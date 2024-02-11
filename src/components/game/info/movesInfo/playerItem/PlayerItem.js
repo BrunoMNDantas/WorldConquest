@@ -36,11 +36,12 @@ const PlayerItem = ({playerId}) => {
                     <img 
                         src={player.avatar} 
                         className={style.image} 
-                        style={{borderColor:player.color}}/>
+                        style={{borderColor:player.color}}
+                        alt=""/>
                 </ListItemAvatar>
                 <ListItemText 
                     primary={player.name} 
-                    secondary={playerMoves.length + (playerMoves.length == 1 ? " Move" : " Moves")}/>
+                    secondary={playerMoves.length + (playerMoves.length === 1 ? " Move" : " Moves")}/>
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>

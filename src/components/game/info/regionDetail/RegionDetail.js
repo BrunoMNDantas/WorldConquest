@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import style from './RegionDetail.module.css'
 import { Slide, Paper, Divider } from "@material-ui/core";
 
-import { selectRegionById } from "../../../../store/region/Region.selectors";
 import { selectSelectedRegionId } from "../../../../store/game/Game.selectors";
 
 import RegionData from "./regionData/RegionData";
