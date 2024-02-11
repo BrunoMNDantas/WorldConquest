@@ -5,7 +5,7 @@ import style from './MovesInfo.module.css'
 import { selectPlayersIds } from '../../../../store/player/Player.selectors'
 
 import { List } from '@material-ui/core';
-import { Cancel } from '@material-ui/icons';
+import { TransferWithinAStation } from '@material-ui/icons';
 import InfoPanel from '../infoPanel/InfoPanel';
 import PlayerItem from './playerItem/PlayerItem';
 
@@ -17,7 +17,7 @@ const MovesInfo = () => {
     const playersIdSorted = [...playersId].sort()
     
     return (
-        <InfoPanel tooltip="Players Moves" icon={<Cancel/>}>
+        <InfoPanel tooltip="Players Moves" icon={<TransferWithinAStation/>}>
             <List className={style.list}>
                 {playersIdSorted.map(id => <PlayerItem key={"MovesInfo " + id} playerId={id}/>)}
             </List>
